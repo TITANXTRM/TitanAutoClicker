@@ -60,12 +60,21 @@ jobs:
       - name: Discover available iPad Simulator (iOS 17+)
         run: |
           set -euo pipefail
-          SIM_UDID="$(xcrun simctl list devices available -j | python3 - <<'PY'
-          import json, re, sys
+          SIMCTL_JSON="$(xcrun simctl list devices available -j)"
+          SIM_UDID="$(SIMCTL_JSON="${SIMCTL_JSON}" python3 - <<'PY'
+          import json, os, re, sys
 
-          data = json.load(sys.stdin)
+          raw = os.environ.get('SIMCTL_JSON', '').strip()
+          if not raw:
+              raise SystemExit('ERROR: xcrun simctl returned empty output; no simulator runtimes available.')
+
+          data = json.loads(raw)
+          devices_by_runtime = data.get('devices', {})
+          if not devices_by_runtime:
+              raise SystemExit('ERROR: No simulator runtimes found in xcrun simctl output.')
+
           matches = []
-          for runtime, devices in data.get('devices', {}).items():
+          for runtime, devices in devices_by_runtime.items():
               match = re.search(r'iOS-(\d+)-(\d+)', runtime)
               if not match:
                   continue
@@ -77,7 +86,10 @@ jobs:
                       matches.append((version, device['name'], device['udid']))
 
           if not matches:
-              raise SystemExit('ERROR: No available iPad simulator with iOS 17+ runtime found.')
+              runtimes = ', '.join(sorted(devices_by_runtime.keys()))
+              raise SystemExit(
+                  f'ERROR: No available iPad simulator with iOS 17+ runtime found. Available runtimes: {runtimes}'
+              )
 
           matches.sort()
           best = matches[-1]
