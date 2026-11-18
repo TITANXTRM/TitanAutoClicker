@@ -1,0 +1,159 @@
+name: iPadOS Build & XCTest
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      package_unsigned_ipa:
+        description: "Also build an unsigned device .ipa artifact for local Windows sideloading (Sideloadly/AltStore)"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: ios-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build & Test (iPadOS Simulator)
+    runs-on: macos-15
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Discover and select Xcode 16+ (Swift 6)
+        run: |
+          set -euo pipefail
+          SELECTED_XCODE="$(python3 - <<'PY'
+          import glob, os, plistlib
+
+          candidates = []
+          for app in sorted(glob.glob('/Applications/Xcode*.app')):
+              plist_path = os.path.join(app, 'Contents', 'Info.plist')
+              if not os.path.exists(plist_path):
+                  continue
+              with open(plist_path, 'rb') as f:
+                  version_str = plistlib.load(f).get('CFBundleShortVersionString', '0')
+              parts = tuple(int(p) for p in version_str.split('.') if p.isdigit())
+              if parts and parts[0] >= 16:
+                  candidates.append((parts, app, version_str))
+
+          if not candidates:
+              raise SystemExit('ERROR: No Xcode 16+ installation found on this runner.')
+
+          candidates.sort()
+          best = candidates[-1]
+          print(best[1])
+          PY
+          )"
+          echo "Selecting Xcode: ${SELECTED_XCODE}"
+          sudo xcode-select -s "${SELECTED_XCODE}/Contents/Developer"
+          xcodebuild -version
+          swift --version
+
+      - name: Discover available iPad Simulator (iOS 17+)
+        run: |
+          set -euo pipefail
+          SIM_UDID="$(xcrun simctl list devices available -j | python3 - <<'PY'
+          import json, re, sys
+
+          data = json.load(sys.stdin)
+          matches = []
+          for runtime, devices in data.get('devices', {}).items():
+              match = re.search(r'iOS-(\d+)-(\d+)', runtime)
+              if not match:
+                  continue
+              version = (int(match.group(1)), int(match.group(2)))
+              if version[0] < 17:
+                  continue
+              for device in devices:
+                  if device.get('isAvailable') and 'iPad' in device.get('name', ''):
+                      matches.append((version, device['name'], device['udid']))
+
+          if not matches:
+              raise SystemExit('ERROR: No available iPad simulator with iOS 17+ runtime found.')
+
+          matches.sort()
+          best = matches[-1]
+          sys.stderr.write(f"Selected simulator: {best[1]} (iOS {best[0][0]}.{best[0][1]}, UDID: {best[2]})\n")
+          print(best[2])
+          PY
+          )"
+          echo "SIM_UDID=${SIM_UDID}" >> "$GITHUB_ENV"
+
+      - name: Build app and test targets for iPad Simulator
+        run: |
+          set -euo pipefail
+          mkdir -p build
+          xcodebuild build-for-testing \
+            -project TitanAutoClicker.xcodeproj \
+            -scheme TitanAutoClicker \
+            -configuration Debug \
+            -destination "platform=iOS Simulator,id=${SIM_UDID}" \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            2>&1 | tee build/build.log
+
+      - name: Run XCTest suite on iPad Simulator
+        run: |
+          set -euo pipefail
+          rm -rf build/TitanAutoClickerTests.xcresult
+          xcodebuild test-without-building \
+            -project TitanAutoClicker.xcodeproj \
+            -scheme TitanAutoClicker \
+            -configuration Debug \
+            -destination "platform=iOS Simulator,id=${SIM_UDID}" \
+            -derivedDataPath build/DerivedData \
+            -resultBundlePath build/TitanAutoClickerTests.xcresult \
+            CODE_SIGNING_ALLOWED=NO \
+            2>&1 | tee build/test.log
+
+      - name: Build unsigned device .ipa (manual opt-in only)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.package_unsigned_ipa == true }}
+        run: |
+          set -euo pipefail
+          mkdir -p build/ipa/Payload
+          xcodebuild build \
+            -project TitanAutoClicker.xcodeproj \
+            -scheme TitanAutoClicker \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build/DeviceDerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            DEVELOPMENT_TEAM="" \
+            2>&1 | tee build/device-build.log
+
+          APP_PATH="build/DeviceDerivedData/Build/Products/Release-iphoneos/TitanAutoClicker.app"
+          test -d "${APP_PATH}"
+          cp -R "${APP_PATH}" build/ipa/Payload/
+          (cd build/ipa && zip -r ../TitanAutoClicker-unsigned.ipa Payload)
+
+      - name: Upload build & test logs and xcresult bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ipados-build-and-test-results
+          path: |
+            build/build.log
+            build/test.log
+            build/device-build.log
+            build/TitanAutoClickerTests.xcresult
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Upload unsigned device .ipa artifact
+        if: ${{ success() && github.event_name == 'workflow_dispatch' && inputs.package_unsigned_ipa == true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: TitanAutoClicker-unsigned-ipa
+          path: build/TitanAutoClicker-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B00000000000000000000001 /* TitanAutoClickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000001 /* TitanAutoClickerApp.swift */; };
+		B00000000000000000000002 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000002 /* AppNavigation.swift */; };
+		B00000000000000000000003 /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000003 /* TimeUnit.swift */; };
+		B00000000000000000000004 /* StopCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000004 /* StopCondition.swift */; };
+		B00000000000000000000005 /* TargetPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000005 /* TargetPoint.swift */; };
+		B00000000000000000000006 /* ExecutionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000006 /* ExecutionSettings.swift */; };
+		B00000000000000000000007 /* AutomationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000007 /* AutomationConfiguration.swift */; };
+		B00000000000000000000008 /* PlatformLimitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000008 /* PlatformLimitation.swift */; };
+		B00000000000000000000009 /* ExecutionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000009 /* ExecutionState.swift */; };
+		B00000000000000000000010 /* ExecutionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000010 /* ExecutionEvent.swift */; };
+		B00000000000000000000011 /* ExecutionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000011 /* ExecutionEngine.swift */; };
+		B00000000000000000000012 /* ConfigurationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000012 /* ConfigurationStore.swift */; };
+		B00000000000000000000013 /* ConfigurationSchemaValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000013 /* ConfigurationSchemaValidator.swift */; };
+		B00000000000000000000014 /* ConfigurationJSONCodec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000014 /* ConfigurationJSONCodec.swift */; };
+		B00000000000000000000015 /* PreviewInteractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000015 /* PreviewInteractionService.swift */; };
+		B00000000000000000000016 /* ValidationBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000016 /* ValidationBounds.swift */; };
+		B00000000000000000000017 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000017 /* Theme.swift */; };
+		B00000000000000000000018 /* TitanAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000018 /* TitanAppViewModel.swift */; };
+		B00000000000000000000019 /* RootSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000019 /* RootSplitView.swift */; };
+		B00000000000000000000020 /* HomeDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000020 /* HomeDashboardView.swift */; };
+		B00000000000000000000021 /* TargetEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000021 /* TargetEditorView.swift */; };
+		B00000000000000000000022 /* SwipeEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000022 /* SwipeEditorView.swift */; };
+		B00000000000000000000023 /* ConfigurationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000023 /* ConfigurationsView.swift */; };
+		B00000000000000000000024 /* GlassPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000024 /* GlassPanel.swift */; };
+		B00000000000000000000025 /* InteractiveTargetCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000025 /* InteractiveTargetCanvas.swift */; };
+		B00000000000000000000026 /* PlatformLimitationsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000026 /* PlatformLimitationsSheet.swift */; };
+		B00000000000000000000027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000027 /* Assets.xcassets */; };
+		B00000000000000000000028 /* ValidationBoundsAndModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000029 /* ValidationBoundsAndModelsTests.swift */; };
+		B00000000000000000000029 /* ConfigurationSchemaValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000030 /* ConfigurationSchemaValidatorTests.swift */; };
+		B00000000000000000000030 /* ConfigurationStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000031 /* ConfigurationStoreTests.swift */; };
+		B00000000000000000000031 /* ExecutionEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000032 /* ExecutionEngineTests.swift */; };
+		B00000000000000000000032 /* TitanAppViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000033 /* TitanAppViewModelTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		X00000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = P00000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = T00000000000000000000001;
+			remoteInfo = TitanAutoClicker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F00000000000000000000000 /* TitanAutoClicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TitanAutoClicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F00000000000000000000001 /* TitanAutoClickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanAutoClickerApp.swift; sourceTree = "<group>"; };
+		F00000000000000000000002 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
+		F00000000000000000000003 /* TimeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
+		F00000000000000000000004 /* StopCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopCondition.swift; sourceTree = "<group>"; };
+		F00000000000000000000005 /* TargetPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPoint.swift; sourceTree = "<group>"; };
+		F00000000000000000000006 /* ExecutionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionSettings.swift; sourceTree = "<group>"; };
+		F00000000000000000000007 /* AutomationConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomationConfiguration.swift; sourceTree = "<group>"; };
+		F00000000000000000000008 /* PlatformLimitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformLimitation.swift; sourceTree = "<group>"; };
+		F00000000000000000000009 /* ExecutionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionState.swift; sourceTree = "<group>"; };
+		F00000000000000000000010 /* ExecutionEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionEvent.swift; sourceTree = "<group>"; };
+		F00000000000000000000011 /* ExecutionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionEngine.swift; sourceTree = "<group>"; };
+		F00000000000000000000012 /* ConfigurationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStore.swift; sourceTree = "<group>"; };
+		F00000000000000000000013 /* ConfigurationSchemaValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSchemaValidator.swift; sourceTree = "<group>"; };
+		F00000000000000000000014 /* ConfigurationJSONCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationJSONCodec.swift; sourceTree = "<group>"; };
+		F00000000000000000000015 /* PreviewInteractionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewInteractionService.swift; sourceTree = "<group>"; };
+		F00000000000000000000016 /* ValidationBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationBounds.swift; sourceTree = "<group>"; };
+		F00000000000000000000017 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		F00000000000000000000018 /* TitanAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanAppViewModel.swift; sourceTree = "<group>"; };
+		F00000000000000000000019 /* RootSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitView.swift; sourceTree = "<group>"; };
+		F00000000000000000000020 /* HomeDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardView.swift; sourceTree = "<group>"; };
+		F00000000000000000000021 /* TargetEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetEditorView.swift; sourceTree = "<group>"; };
+		F00000000000000000000022 /* SwipeEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeEditorView.swift; sourceTree = "<group>"; };
+		F00000000000000000000023 /* ConfigurationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationsView.swift; sourceTree = "<group>"; };
+		F00000000000000000000024 /* GlassPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassPanel.swift; sourceTree = "<group>"; };
+		F00000000000000000000025 /* InteractiveTargetCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTargetCanvas.swift; sourceTree = "<group>"; };
+		F00000000000000000000026 /* PlatformLimitationsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformLimitationsSheet.swift; sourceTree = "<group>"; };
+		F00000000000000000000027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F00000000000000000000028 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00000000000000000000029 /* ValidationBoundsAndModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationBoundsAndModelsTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000030 /* ConfigurationSchemaValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSchemaValidatorTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000031 /* ConfigurationStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStoreTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000032 /* ExecutionEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionEngineTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000033 /* TitanAppViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanAppViewModelTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000034 /* TitanAutoClickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TitanAutoClickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D00000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D00000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A00000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000002 /* TitanAutoClicker */,
+				A00000000000000000000015 /* TitanAutoClickerTests */,
+				A00000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A00000000000000000000002 /* TitanAutoClicker */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000004 /* App */,
+				A00000000000000000000005 /* Models */,
+				A00000000000000000000006 /* ExecutionEngine */,
+				A00000000000000000000007 /* ConfigurationStorage */,
+				A00000000000000000000008 /* ImportExport */,
+				A00000000000000000000009 /* Services */,
+				A00000000000000000000010 /* Utilities */,
+				A00000000000000000000011 /* ViewModels */,
+				A00000000000000000000012 /* Views */,
+				A00000000000000000000014 /* Resources */,
+			);
+			path = TitanAutoClicker;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000000 /* TitanAutoClicker.app */,
+				F00000000000000000000034 /* TitanAutoClickerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000004 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000001 /* TitanAutoClickerApp.swift */,
+				F00000000000000000000002 /* AppNavigation.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000005 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000003 /* TimeUnit.swift */,
+				F00000000000000000000004 /* StopCondition.swift */,
+				F00000000000000000000005 /* TargetPoint.swift */,
+				F00000000000000000000006 /* ExecutionSettings.swift */,
+				F00000000000000000000007 /* AutomationConfiguration.swift */,
+				F00000000000000000000008 /* PlatformLimitation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000006 /* ExecutionEngine */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000009 /* ExecutionState.swift */,
+				F00000000000000000000010 /* ExecutionEvent.swift */,
+				F00000000000000000000011 /* ExecutionEngine.swift */,
+			);
+			path = ExecutionEngine;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000007 /* ConfigurationStorage */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000012 /* ConfigurationStore.swift */,
+			);
+			path = ConfigurationStorage;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000008 /* ImportExport */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000013 /* ConfigurationSchemaValidator.swift */,
+				F00000000000000000000014 /* ConfigurationJSONCodec.swift */,
+			);
+			path = ImportExport;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000009 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000015 /* PreviewInteractionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000010 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000016 /* ValidationBounds.swift */,
+				F00000000000000000000017 /* Theme.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000011 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000018 /* TitanAppViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000012 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000019 /* RootSplitView.swift */,
+				F00000000000000000000020 /* HomeDashboardView.swift */,
+				F00000000000000000000021 /* TargetEditorView.swift */,
+				F00000000000000000000022 /* SwipeEditorView.swift */,
+				F00000000000000000000023 /* ConfigurationsView.swift */,
+				A00000000000000000000013 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000013 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000024 /* GlassPanel.swift */,
+				F00000000000000000000025 /* InteractiveTargetCanvas.swift */,
+				F00000000000000000000026 /* PlatformLimitationsSheet.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000014 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000027 /* Assets.xcassets */,
+				F00000000000000000000028 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000015 /* TitanAutoClickerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000000029 /* ValidationBoundsAndModelsTests.swift */,
+				F00000000000000000000030 /* ConfigurationSchemaValidatorTests.swift */,
+				F00000000000000000000031 /* ConfigurationStoreTests.swift */,
+				F00000000000000000000032 /* ExecutionEngineTests.swift */,
+				F00000000000000000000033 /* TitanAppViewModelTests.swift */,
+			);
+			path = TitanAutoClickerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		T00000000000000000000001 /* TitanAutoClicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C00000000000000000000002 /* Build configuration list for PBXNativeTarget "TitanAutoClicker" */;
+			buildPhases = (
+				S00000000000000000000001 /* Sources */,
+				D00000000000000000000001 /* Frameworks */,
+				R00000000000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TitanAutoClicker;
+			productName = TitanAutoClicker;
+			productReference = F00000000000000000000000 /* TitanAutoClicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		T00000000000000000000002 /* TitanAutoClickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C00000000000000000000003 /* Build configuration list for PBXNativeTarget "TitanAutoClickerTests" */;
+			buildPhases = (
+				S00000000000000000000002 /* Sources */,
+				D00000000000000000000002 /* Frameworks */,
+				R00000000000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				Y00000000000000000000001 /* PBXTargetDependency */,
+			);
+			name = TitanAutoClickerTests;
+			productName = TitanAutoClickerTests;
+			productReference = F00000000000000000000034 /* TitanAutoClickerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		P00000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					T00000000000000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					T00000000000000000000002 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = T00000000000000000000001;
+					};
+				};
+			};
+			buildConfigurationList = C00000000000000000000001 /* Build configuration list for PBXProject "TitanAutoClicker" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A00000000000000000000001;
+			productRefGroup = A00000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				T00000000000000000000001 /* TitanAutoClicker */,
+				T00000000000000000000002 /* TitanAutoClickerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		R00000000000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00000000000000000000027 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		R00000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		S00000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00000000000000000000001 /* TitanAutoClickerApp.swift in Sources */,
+				B00000000000000000000002 /* AppNavigation.swift in Sources */,
+				B00000000000000000000003 /* TimeUnit.swift in Sources */,
+				B00000000000000000000004 /* StopCondition.swift in Sources */,
+				B00000000000000000000005 /* TargetPoint.swift in Sources */,
+				B00000000000000000000006 /* ExecutionSettings.swift in Sources */,
+				B00000000000000000000007 /* AutomationConfiguration.swift in Sources */,
+				B00000000000000000000008 /* PlatformLimitation.swift in Sources */,
+				B00000000000000000000009 /* ExecutionState.swift in Sources */,
+				B00000000000000000000010 /* ExecutionEvent.swift in Sources */,
+				B00000000000000000000011 /* ExecutionEngine.swift in Sources */,
+				B00000000000000000000012 /* ConfigurationStore.swift in Sources */,
+				B00000000000000000000013 /* ConfigurationSchemaValidator.swift in Sources */,
+				B00000000000000000000014 /* ConfigurationJSONCodec.swift in Sources */,
+				B00000000000000000000015 /* PreviewInteractionService.swift in Sources */,
+				B00000000000000000000016 /* ValidationBounds.swift in Sources */,
+				B00000000000000000000017 /* Theme.swift in Sources */,
+				B00000000000000000000018 /* TitanAppViewModel.swift in Sources */,
+				B00000000000000000000019 /* RootSplitView.swift in Sources */,
+				B00000000000000000000020 /* HomeDashboardView.swift in Sources */,
+				B00000000000000000000021 /* TargetEditorView.swift in Sources */,
+				B00000000000000000000022 /* SwipeEditorView.swift in Sources */,
+				B00000000000000000000023 /* ConfigurationsView.swift in Sources */,
+				B00000000000000000000024 /* GlassPanel.swift in Sources */,
+				B00000000000000000000025 /* InteractiveTargetCanvas.swift in Sources */,
+				B00000000000000000000026 /* PlatformLimitationsSheet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		S00000000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00000000000000000000028 /* ValidationBoundsAndModelsTests.swift in Sources */,
+				B00000000000000000000029 /* ConfigurationSchemaValidatorTests.swift in Sources */,
+				B00000000000000000000030 /* ConfigurationStoreTests.swift in Sources */,
+				B00000000000000000000031 /* ExecutionEngineTests.swift in Sources */,
+				B00000000000000000000032 /* TitanAppViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		Y00000000000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = T00000000000000000000001 /* TitanAutoClicker */;
+			targetProxy = X00000000000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E00000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		E00000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E00000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TitanAutoClicker/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanlabs.autoclicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		E00000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TitanAutoClicker/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanlabs.autoclicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		E00000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanlabs.autoclickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TitanAutoClicker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TitanAutoClicker";
+			};
+			name = Debug;
+		};
+		E00000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.titanlabs.autoclickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TitanAutoClicker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TitanAutoClicker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C00000000000000000000001 /* Build configuration list for PBXProject "TitanAutoClicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E00000000000000000000001 /* Debug */,
+				E00000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C00000000000000000000002 /* Build configuration list for PBXNativeTarget "TitanAutoClicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E00000000000000000000003 /* Debug */,
+				E00000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C00000000000000000000003 /* Build configuration list for PBXNativeTarget "TitanAutoClickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E00000000000000000000005 /* Debug */,
+				E00000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = P00000000000000000000001 /* Project object */;
+}
