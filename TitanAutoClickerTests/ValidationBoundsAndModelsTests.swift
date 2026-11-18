@@ -109,7 +109,7 @@ final class ValidationBoundsAndModelsTests: XCTestCase {
         // Degenerate or non-finite geometry must never trap.
         var badPoint = NormalizedPoint(x: 0.5, y: 0.5)
         badPoint.x = .nan
-        let formatted = PreviewInteractionService.formattedCoordinates(badPoint, in: CGSize(width: .infinity, height: 0))
+        let formatted = PreviewInteractionService.formattedCoordinates(badPoint, in: CGSize(width: CGFloat.infinity, height: 0))
         XCTAssertEqual(formatted, "(1, 1) pt")
     }
 
